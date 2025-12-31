@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import {
@@ -24,7 +24,6 @@ const renderInlineFormatting = (text) => {
 
 const ArticlePage = () => {
     const { id } = useParams();
-    const navigate = useNavigate();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isBookmarked, setIsBookmarked] = useState(false);
     const [claps, setClaps] = useState(0);
@@ -59,13 +58,6 @@ const ArticlePage = () => {
                 <div className="min-h-screen flex items-center justify-center bg-gray-50">
                     <div className="text-center">
                         <h1 className="text-4xl font-bold text-gray-900 mb-4">Article Not Found</h1>
-                        <p className="text-gray-600 mb-8">The article you're looking for doesn't exist.</p>
-                        <button
-                            onClick={() => navigate('/')}
-                            className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-full hover:from-orange-600 hover:to-orange-700 transition-all duration-300 cursor-pointer"
-                        >
-                            Back to Home
-                        </button>
                     </div>
                 </div>
                 <Footer />
@@ -94,19 +86,6 @@ const ArticlePage = () => {
                         />
                         {/* Gradient Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/60 to-gray-900/90"></div>
-                    </div>
-
-                    {/* Breadcrumb */}
-                    <div className="absolute top-6 left-0 right-0 z-10">
-                        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <button
-                                onClick={() => window.location.href = '/'}
-                                className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-sm text-white hover:bg-white/20 transition-all border border-white/20 cursor-pointer"
-                            >
-                                <ArrowLeft size={16} />
-                                Back to Home
-                            </button>
-                        </div>
                     </div>
 
                     {/* Title Overlay */}
